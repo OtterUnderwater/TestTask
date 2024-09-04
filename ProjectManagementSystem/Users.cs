@@ -4,6 +4,8 @@ namespace ProjectManagementSystem
 {
 	public class Users
 	{
+		static WorkingWithTasks WorkingWithTasks = new WorkingWithTasks();
+		static Authorization Auth = new Authorization();
 		public static PmsContext ContextDB = new PmsContext();
 		public static Employee User = new Employee();
 		public void StartSession()
@@ -29,17 +31,15 @@ namespace ProjectManagementSystem
 			do
 			{
 				Console.Clear();
-				WorkingWithTasks workingWithTasks = new WorkingWithTasks();
-				Authorization auth = new Authorization();
 				Console.WriteLine("1. Посмотреть список задач");
 				Console.WriteLine("2. Добавить задачу и назначить исполнителя");
 				Console.WriteLine("3. Зарегестрировать нового пользователя");
 				int answer = Convert.ToInt32(Console.ReadLine());
 				switch (answer)
 				{
-					case 1: workingWithTasks.ShowTasks(); break;
-					case 2: workingWithTasks.AddNewTasks(); break;
-					case 3: auth.AddNewUser(); break;
+					case 1: WorkingWithTasks.ShowTasks(); break;
+					case 2: WorkingWithTasks.AddNewTasks(); break;
+					case 3: Auth.AddNewUser(); break;
 					default: Console.WriteLine("Такого действия нет"); break;
 				}
 				Console.WriteLine("\n Нажмите любую клавишу для продолжения, Esc - вызов меню");
@@ -53,13 +53,15 @@ namespace ProjectManagementSystem
 			{
 				Console.Clear();
 				Console.WriteLine("Ваши задачи:");
+				WorkingWithTasks.ShowTasks();
+				Console.WriteLine("\nВыберите действие:");
 				Console.WriteLine("1. Изменить статус задачи");
 				Console.WriteLine("2. Отсортировать задачи");
 				int answer = Convert.ToInt32(Console.ReadLine());
 				switch (answer)
 				{
-					//case 1: ChangeStatusTasks(); break;
-					//case 2: SortTask(); break;
+					case 1: WorkingWithTasks.ChangeStatusTasks(); break;
+					case 2: WorkingWithTasks.SortTasks(); break;
 					default: Console.WriteLine("Такого действия нет"); break;
 				}
 				Console.WriteLine("\n Нажмите любую клавишу для продолжения, Esc - вызов меню");

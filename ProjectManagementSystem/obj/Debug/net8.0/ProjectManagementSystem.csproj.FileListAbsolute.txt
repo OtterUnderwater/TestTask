@@ -97,3 +97,4 @@ D:\otter\C#\ProjectManagementSystem\ProjectManagementSystem\obj\Debug\net8.0\ref
 D:\otter\C#\ProjectManagementSystem\ProjectManagementSystem\obj\Debug\net8.0\ProjectManagementSystem.pdb
 D:\otter\C#\ProjectManagementSystem\ProjectManagementSystem\obj\Debug\net8.0\ProjectManagementSystem.genruntimeconfig.cache
 D:\otter\C#\ProjectManagementSystem\ProjectManagementSystem\obj\Debug\net8.0\ref\ProjectManagementSystem.dll
+D:\otter\C#\ProjectManagementSystem\ProjectManagementSystem\obj\Debug\net8.0\ProjectManagementSystem.sourcelink.json
