@@ -90,11 +90,7 @@ public partial class PmsContext : DbContext
 
             entity.ToTable("work_tasks");
 
-            entity.HasIndex(e => e.IdStatus, "work_tasks_un").IsUnique();
-
-            entity.Property(e => e.Id)
-                .ValueGeneratedNever()
-                .HasColumnName("id");
+            entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Description)
                 .HasColumnType("character varying")
                 .HasColumnName("description");
@@ -108,10 +104,10 @@ public partial class PmsContext : DbContext
                 .HasForeignKey(d => d.IdEmployee)
                 .HasConstraintName("work_tasks_fk");
 
-            entity.HasOne(d => d.IdStatusNavigation).WithOne(p => p.WorkTask)
-                .HasForeignKey<WorkTask>(d => d.IdStatus)
+            entity.HasOne(d => d.IdStatusNavigation).WithMany(p => p.WorkTasks)
+                .HasForeignKey(d => d.IdStatus)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("work_tasks_fk_1");
+                .HasConstraintName("work_tasks_fk2");
         });
 
         OnModelCreatingPartial(modelBuilder);

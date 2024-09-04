@@ -5,15 +5,15 @@ namespace ProjectManagementSystem.Models;
 
 public partial class WorkTask
 {
-    public Guid Id { get; set; }
+    public int Id { get; set; }
 
     public string Name { get; set; } = null!;
 
     public string? Description { get; set; }
 
-    public Guid? IdEmployee { get; set; }
-
     public int IdStatus { get; set; }
+
+    public Guid? IdEmployee { get; set; }
 
     public virtual Employee? IdEmployeeNavigation { get; set; }
 

@@ -9,5 +9,5 @@ public partial class Status
 
     public string Status1 { get; set; } = null!;
 
-    public virtual WorkTask? WorkTask { get; set; }
+    public virtual ICollection<WorkTask> WorkTasks { get; set; } = new List<WorkTask>();
 }
